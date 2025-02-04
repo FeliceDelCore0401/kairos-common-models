@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+
+option java_multiple_files = true;
+option java_package = "it.sisal.kairos.grpc";
+
+service SenderRestService {
+  rpc SendRegulatoryRestMessage (stream MessageRequest) returns (stream AckResponse) {}
+  rpc SendInfoMessage (stream MessageRequest) returns (stream AckResponse) {}
+}
+
+service SenderVaultService {
+  rpc SendRegulatoryVaultMessage (stream MessageRequest) returns (stream AckResponse) {}
+  rpc SendInfoMessage (stream MessageRequest) returns (stream AckResponse) {}
+}
+
+service MonitorService {
+  rpc SendMonitorMessage (stream MessageRequest) returns (stream AckResponse) {}
+  rpc SendInfoMessage (stream MessageRequest) returns (stream AckResponse) {}
+}
+
+// The generic message request
+message MessageRequest {
+  string id = 1;
+  string caller = 2;
+  google.protobuf.Struct data = 3;
+}
+
+// The routing response message
+message AckResponse {
+  string recordId = 1;
+  bool success = 2;
+  google.protobuf.Struct additionalInfo = 3;
+}
