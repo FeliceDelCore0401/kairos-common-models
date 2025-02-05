@@ -14,8 +14,9 @@
                 "clean": true,
                 "managedSettingsId": "maven-settings-oci",
                 "withDocker": {
-                    "image": "fra.ocir.io/sisalspa/base-images/maven:3.8.3-openjdk-17"
+                    "image": "fra.ocir.io/sisalspa/base-images/maven:3.9.6-eclipse-temurin-21-alpine"
                 }
+				
             }
         },
         "maven clean deploy": {
@@ -33,7 +34,7 @@
                 "managedSettingsId": "maven-settings-oci",
                 "saveToBuildDir": true,
                 "withDocker": {
-                    "image": "fra.ocir.io/sisalspa/base-images/maven:3.8.3-openjdk-17"
+                    "image": "fra.ocir.io/sisalspa/base-images/maven:3.9.6-eclipse-temurin-21-alpine"
                 }
             }
         }
